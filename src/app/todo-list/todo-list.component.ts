@@ -1,21 +1,29 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Subscription } from 'rxjs';
 
-import { TodoItemComponent } from '../todo-item/todo-item.component';
+import { TodoItemComponent } from './todo-item/todo-item.component';
+import { TodoService } from '../todo.service';
+import { TodoDetailsComponent } from './todo-details/todo-details.component';
 
 @Component({
   standalone: true,
   selector: 'app-todo-list',
-  imports: [CommonModule, TodoItemComponent],
+  imports: [CommonModule, TodoItemComponent, TodoDetailsComponent],
   templateUrl: './todo-list.component.html',
 })
 export class TodoListComponent {
-  todos = [
-    'Complete online JavaScript course',
-    'Jog around the park 3x',
-    '10 minutes meditation',
-    'Read for 1 hour',
-    'Pick up groceries',
-    'Complete Todo App on Frontend Mentor',
-  ];
+  todos: Object[];
+  subscription: Subscription;
+
+  constructor(private todoService: TodoService) {
+    // When todos change, update the list
+    this.subscription = this.todoService.todosChanged.subscribe(
+      (todos: Object[]) => {
+        this.todos = todos;
+      }
+    );
+
+    this.todos = this.todoService.getTodos();
+  }
 }

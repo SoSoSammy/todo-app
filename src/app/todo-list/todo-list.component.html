@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="todo-list">
+    <app-todo-item
+      *ngFor="let todo of todos; let last = last"
+      [todo]="todo"
+      [ngClass]="{ 'todo-last-child': last }"
+    ></app-todo-item>
+  </div>
+  <!-- end .todo-list -->
+</div>
+<!-- end .container -->

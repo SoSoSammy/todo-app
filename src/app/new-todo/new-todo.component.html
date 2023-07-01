@@ -1,7 +1,16 @@
-<form (ngSubmit)="onSubmit()" #f="ngForm">
-  <div class="form-row">
-    <input type="text" name="todo" ngModel rquired />
-  </div>
-  <!-- end .form-row -->
-  <button class="btn" type="submit" [disabled]="!f.valid">Add Todo</button>
-</form>
+<div class="container">
+  <form (ngSubmit)="onSubmit()" #form="ngForm">
+    <div class="form-row">
+      <input
+        class="new-todo"
+        type="text"
+        name="todo"
+        placeholder="Create a new todo..."
+        ngModel
+        rquired
+      />
+    </div>
+    <!-- end .form-row -->
+  </form>
+</div>
+<!-- end .container -->

@@ -2,7 +2,11 @@
 
 :root {
   --bright-blue: hsl(220, 98%, 61%);
-  --check-background: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
+  --check-background: linear-gradient(
+    to bottom right,
+    hsl(192, 100%, 67%),
+    hsl(280, 87%, 65%)
+  );
   /* Light Theme */
   --very-light-gray: hsl(0, 0%, 98%);
   --very-light-grayish-blue: hsl(236, 33%, 92%);
@@ -104,28 +108,77 @@ header .container {
   border-bottom: 1px solid var(--very-dark-grayish-blue-dt);
   display: flex;
   align-items: center;
-}
-
-.todo-last-child .todo {
-  border-bottom: none;
+  line-height: 0.5; /* To line up the text with the checkbox */
 }
 
 .todo__check {
   cursor: pointer;
   margin-right: 15px;
   display: inline-block;
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
   border: 1px solid var(--very-dark-grayish-blue-dt);
-  background-color: var(--check-background);
+  transition: border 0.2s ease-in-out;
 }
 
+/* Linear gradient border on hover */
 .todo__check:hover {
-  border: 1px solid var(--check-background);
+  background: linear-gradient(
+        var(--very-dark-desaturated-blue),
+        var(--very-dark-desaturated-blue)
+      )
+      padding-box,
+    var(--check-background) border-box;
+  border: 1px solid transparent;
 }
 
 .todo__delete {
   cursor: pointer;
   margin-left: auto;
+}
+
+.todo__delete svg path {
+  fill: var(--very-dark-grayish-blue-dt);
+  transition: fill 0.2s ease-in-out;
+}
+
+.todo__delete:hover svg path {
+  fill: var(--dark-grayish-blue);
+}
+
+/* ===================== Todo Completed ===================== */
+
+.todo--completed span {
+  color: var(--dark-grayish-blue);
+  text-decoration: line-through;
+}
+
+.todo--completed .todo__check {
+  background: var(--check-background);
+  border: 1px solid transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ===================== Todo Details ===================== */
+
+.todo-details {
+  background-color: var(--very-dark-desaturated-blue);
+  padding: 20px;
+  color: var(--dark-grayish-blue);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.todo-details__clear {
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+}
+
+.todo-details__clear:hover {
+  color: var(--light-grayish-blue);
 }

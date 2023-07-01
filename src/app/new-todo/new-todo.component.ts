@@ -9,10 +9,10 @@ import { FormsModule, NgForm } from '@angular/forms';
   templateUrl: './new-todo.component.html',
 })
 export class NewTodoComponent {
-  @ViewChild('f') todoForm: NgForm;
+  @ViewChild('form') todoForm: NgForm;
 
   onSubmit() {
     console.log(this.todoForm.value.todo);
-    console.log('Submitted');
+    this.todoForm.reset();
   }
 }

@@ -1,4 +1,5 @@
 /* ===================== Global Styles ===================== */
+
 :root {
   --bright-blue: hsl(220, 98%, 61%);
   --check-background: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
@@ -23,6 +24,7 @@ body {
   padding: 0;
   font-family: "Josefin Sans", sans-serif;
   font-size: 18px;
+  background-color: var(--very-dark-blue);
 }
 
 * {
@@ -30,16 +32,16 @@ body {
 }
 
 .container {
-  width: 92vw;
+  width: 90vw;
   margin: auto;
 }
 
 /* ===================== Header ===================== */
+
 header .header-bg {
-  background-image: url("./assets/images/bg-desktop-dark.jpg");
+  background-image: url("./assets/images/bg-mobile-dark.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
   height: 250px;
   padding-top: 20px;
 }
@@ -54,4 +56,76 @@ header .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+/* ===================== Todo Block ===================== */
+
+.todo-block {
+  position: relative;
+  top: -115px;
+}
+
+/* ===================== New Todo ===================== */
+
+.new-todo {
+  background-color: var(--very-dark-desaturated-blue);
+  border: none;
+  border-radius: 5px;
+  padding: 20px;
+  color: var(--light-grayish-blue);
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.new-todo::placeholder {
+  color: var(--dark-grayish-blue);
+}
+
+.new-todo:focus {
+  outline: none;
+}
+
+/* ===================== Todo List ===================== */
+
+.todo-list {
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 20px 0;
+}
+
+/* ===================== Todo ===================== */
+
+.todo {
+  background-color: var(--very-dark-desaturated-blue);
+  padding: 20px;
+  color: var(--light-grayish-blue);
+  width: 100%;
+  border-bottom: 1px solid var(--very-dark-grayish-blue-dt);
+  display: flex;
+  align-items: center;
+}
+
+.todo-last-child .todo {
+  border-bottom: none;
+}
+
+.todo__check {
+  cursor: pointer;
+  margin-right: 15px;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid var(--very-dark-grayish-blue-dt);
+  background-color: var(--check-background);
+}
+
+.todo__check:hover {
+  border: 1px solid var(--check-background);
+}
+
+.todo__delete {
+  cursor: pointer;
+  margin-left: auto;
 }

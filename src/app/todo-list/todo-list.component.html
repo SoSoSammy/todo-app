@@ -1,10 +1,13 @@
 <div class="container">
   <div class="todo-list">
     <app-todo-item
-      *ngFor="let todo of todos; let last = last"
+      *ngFor="let todo of todos; let index = index"
       [todo]="todo"
-      [ngClass]="{ 'todo-last-child': last }"
+      [isCompleted]="todo.completed"
+      [ngClass]="{ 'todo--completed': todo.completed }"
+      [index]="index"
     ></app-todo-item>
+    <app-todo-details></app-todo-details>
   </div>
   <!-- end .todo-list -->
 </div>

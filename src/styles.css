@@ -183,3 +183,25 @@ header .container {
 .todo-details__clear:hover {
   color: var(--light-grayish-blue);
 }
+
+/* ===================== Todo Filter ===================== */
+
+.todo-filter {
+  background-color: var(--very-dark-desaturated-blue);
+  padding: 20px;
+  color: var(--dark-grayish-blue);
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.todo-filter span {
+  margin: 0 15px;
+  cursor: pointer;
+}
+
+.todo-filter__active {
+  color: var(--bright-blue);
+}

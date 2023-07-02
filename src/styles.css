@@ -155,7 +155,8 @@ header .container {
 }
 
 .todo--completed .todo__check {
-  background: var(--check-background);
+  background: var(--check-background) padding-box,
+    var(--check-background) border-box;
   border: 1px solid transparent;
   display: flex;
   justify-content: center;

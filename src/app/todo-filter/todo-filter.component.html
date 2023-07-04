@@ -1,8 +1,20 @@
 <div class="container">
   <div class="todo-filter">
-    <span class="todo-filter__active">All</span>
-    <span>Active</span>
-    <span>Completed</span>
+    <span
+      (click)="filterAll()"
+      [ngClass]="{ 'todo-filter__active': selectedFilter == 'all' }"
+      >All</span
+    >
+    <span
+      (click)="filterActive()"
+      [ngClass]="{ 'todo-filter__active': selectedFilter == 'active' }"
+      >Active</span
+    >
+    <span
+      (click)="filterCompleted()"
+      [ngClass]="{ 'todo-filter__active': selectedFilter == 'completed' }"
+      >Completed</span
+    >
   </div>
   <!-- end .todo-filter -->
 </div>

@@ -16,7 +16,7 @@ export class TodoService {
     return this.todos.slice(); // return a copy of the array
   }
 
-  // use array reduce to get the number of todos that are not completed
+  // Get the number of todos that are not completed
   getTodosLeft() {
     return this.todos.reduce((count, todo) => {
       return count + (todo.completed ? 0 : 1);
@@ -45,5 +45,22 @@ export class TodoService {
     this.todos = this.todos.filter((todo) => !todo.completed);
     // Notify subscribers that the todos have changed
     this.todosChanged.next(this.todos.slice());
+  }
+
+  filterTodos(filter: string) {
+    switch (filter) {
+      case 'all':
+        return this.todosChanged.next(this.todos.slice());
+      case 'active':
+        return this.todosChanged.next(
+          this.todos.filter((todo) => !todo['completed'])
+        );
+      case 'completed':
+        return this.todosChanged.next(
+          this.todos.filter((todo) => todo['completed'])
+        );
+      default:
+        this.todosChanged.next(this.todos.slice());
+    }
   }
 }

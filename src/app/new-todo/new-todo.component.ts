@@ -10,10 +10,18 @@ import { TodoService } from '../todo.service';
   templateUrl: './new-todo.component.html',
 })
 export class NewTodoComponent {
-  @ViewChild('form') todoForm: NgForm;
+  @ViewChild('form') todoForm: NgForm; // The todo form
 
+  /**
+   * Build the new todo component with its necessary dependencies.
+   *
+   * @param todoService - the todo service
+   */
   constructor(private todoService: TodoService) {}
 
+  /**
+   * Add a new todo.
+   */
   onSubmit() {
     console.log(this.todoForm.value.todo);
     this.todoService.addTodo(this.todoForm.value.todo);

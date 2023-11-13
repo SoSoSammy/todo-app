@@ -9,27 +9,16 @@ import { TodoService } from 'src/app/todo.service';
   imports: [CommonModule],
 })
 export class TodoItemComponent {
-  @Input() todo: { title: string; completed: boolean }; // The todo
-  @Input() index: number; // The index of the todo
-  @Input() isCompleted: boolean; // Whether the todo is completed
+  @Input() todo: { title: string; completed: boolean };
+  @Input() index: number;
+  @Input() isCompleted: boolean;
 
-  /**
-   * Build the todo item component with its necessary dependencies.
-   *
-   * @param todoService - the todo service
-   */
   constructor(private todoService: TodoService) {}
 
-  /**
-   * Toggle the todo's completed status.
-   */
   completeTodo() {
     this.todoService.completeTodo(this.index);
   }
 
-  /**
-   * Delete the todo.
-   */
   deleteTodo() {
     this.todoService.deleteTodo(this.index);
   }

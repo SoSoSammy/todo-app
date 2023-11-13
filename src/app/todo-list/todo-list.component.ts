@@ -13,15 +13,9 @@ import { TodoDetailsComponent } from './todo-details/todo-details.component';
   templateUrl: './todo-list.component.html',
 })
 export class TodoListComponent {
-  todos: Object[]; // List of todos
-  subscription: Subscription; // Subscription to todosChanged
+  todos: Object[];
+  subscription: Subscription;
 
-  /**
-   * Build the todo list component with its necessary dependencies, subscribe to todosChanged and update the list
-   * whenever todos change, and get the initial list of todos.
-   *
-   * @param todoService - the todo service
-   */
   constructor(private todoService: TodoService) {
     // When todos change, update the list
     this.subscription = this.todoService.todosChanged.subscribe(
